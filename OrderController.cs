@@ -15,7 +15,7 @@ public class OrdersController : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<OrderWithStatus>>> GetOrders()
+	public async Task<ActionResult<List<OrderWithStatus>>> GetOrders()
     {
         var orders = await _db.Orders
          .Include(o => o.Pizzas).ThenInclude(p => p.Special)
